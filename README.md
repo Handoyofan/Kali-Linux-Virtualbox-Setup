@@ -362,24 +362,6 @@ Inside Kali, the folder appears at `/media/sf_kali-share`.
 | **Forensics** | Autopsy, Binwalk |
 | **Sniffing & Spoofing** | Wireshark, Ettercap |
 
----
-
-## 📸 Screenshots
-
-> *(As you complete each step, take screenshots and add them to a `/screenshots` folder in this repo)*
-
-| Step | Screenshot File |
-|---|---|
-| VirtualBox installed on macOS | `screenshots/01-virtualbox-installed.png` |
-| System Extension allowed in Privacy & Security | `screenshots/02-system-extension-allowed.png` |
-| VM creation — ARM64 settings | `screenshots/03-vm-creation-arm64.png` |
-| Hardware configuration (3 GB RAM / 2 CPU) | `screenshots/04-hardware-config.png` |
-| Kali boot menu | `screenshots/05-kali-boot-menu.png` |
-| Disk partition setup | `screenshots/06-partition.png` |
-| Installation in progress | `screenshots/07-installation.png` |
-| Kali Linux desktop — first login | `screenshots/08-kali-desktop.png` |
-| Terminal — system update complete | `screenshots/09-system-updated.png` |
-| Snapshot created | `screenshots/10-snapshot.png` |
 
 ---
 
