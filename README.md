@@ -41,8 +41,9 @@ This project documents the process of setting up a **Kali Linux virtual machine*
 | **Storage** | 512 GB SSD |
 | **Virtualization Tool** | Oracle VirtualBox 7.2.4 (Apple Silicon) |
 | **Guest OS** | Kali Linux 2025.4 ARM64 |
-| **RAM Allocated to VM** | 3 GB |
-| **Disk Space Allocated** | 30–40 GB |
+| **RAM Allocated to VM** | 4 GB (4096 MB)|
+| **CPUs Allocated to VM** | 4 |
+| **Disk Space Allocated** | 25.64 GB |
 | **Completion Time** | ~45–60 minutes |
 
 ---
@@ -61,7 +62,7 @@ Setting up a virtual machine is **step zero** in cybersecurity. Here's why it ma
 
 ## ⚠️ Important: M1 Chip Considerations
 
-> This is the most critical section for Apple Silicon users — read before you start.
+> This is the most critical section for Apple Silicon users
 
 The **Apple M1 chip uses ARM64 architecture**, which is fundamentally different from the x86_64 (Intel) architecture that most VMs are traditionally built on. This has two important implications:
 
@@ -81,7 +82,7 @@ If VirtualBox gives you trouble on M1, **UTM** is a free, Mac-native virtualizat
 Before starting, make sure you have:
 
 - [x] MacBook Pro with **Apple M1 chip**
-- [x] **8 GB RAM** (we'll allocate 3 GB to the VM)
+- [x] **8 GB RAM** (we'll allocate 4 GB to the VM)
 - [x] At least **50 GB of free disk space** on your 512 GB SSD
 - [ ] macOS Ventura (13.x) or Sonoma (14.x) — update if needed
 - [ ] Internet connection for downloads
@@ -95,7 +96,7 @@ df -h /
 ```
 Or go to **Apple Menu** → **System Settings** → **General** → **Storage**.
 
-> 💡 With 512 GB total, aim to keep at least 100 GB free on your Mac. Allocate 30–40 GB for the Kali VM — this leaves you plenty of headroom.
+> 💡 With 512 GB total, aim to keep at least 100 GB free on your Mac. Allocate 30–40 GB for the Kali VM — this leaves you plenty of headroom. The VM in this setup uses 25.64 GB.
 
 ---
 
@@ -197,22 +198,22 @@ With 8 GB total on your M1 Mac:
 | Allocation | Notes |
 |---|---|
 | 2048 MB (2 GB) | Minimum — functional but slow |
-| **3072 MB (3 GB)** | ✅ Recommended for your setup |
-| 4096 MB (4 GB) | Only if all other Mac apps are closed |
+| 3072 MB (3 GB) | Recommended for your setup |
+| **4096 MB (4 GB)** | ✅Used in this setup - best performance |
 
 > ⚠️ Never exceed half your total RAM. Keeping 4–5 GB for macOS ensures your host stays responsive.
 
 **Processors:**
-- Set to **2 CPUs**
-- Your M1 has 8 cores — allocating 2 gives the VM good performance without starving macOS
+- Set to **4 CPUs**
+- Your M1 has 8 cores — allocating 4 gives the VM good performance while leaving 4 cores for macOS
 
 Click **Next**.
 
 ### Step 3.3 — Create the Virtual Hard Disk
 
 1. Select **Create a Virtual Hard Disk Now**
-2. Set size to **30–40 GB** (comfortable on your 512 GB drive)
-3. Format: **VDI (VirtualBox Disk Image)**
+2. Set size to **25.64 GB** (as configured in this setup)
+3. Format: **VirtioSCSI** (selected automatically on ARM - better performance than SATA)
 4. Type: **Dynamically Allocated** (only uses space as data fills it)
 5. Click **Finish**
 
@@ -220,9 +221,10 @@ Click **Next**.
 
 Right-click your VM → **Settings**:
 
-- **Display** → **Screen**: Set Video Memory to **128 MB**
+- **Display** → **Screen**: Set Video Memory to **128 MB**, Graphics controller to VMSVGA
 - **Network** → **Adapter 1**: Confirm it's set to **NAT** (gives internet access via your Mac)
 - **USB**: Enable USB 2.0 or 3.0 (requires Extension Pack)
+- **System** → **Motherboard**: EFI ✅ (required for ARM64 Kali)
 
 ---
 
@@ -425,17 +427,6 @@ Through this project, I learned:
 
 ---
 
-## 🚀 Next Steps
-
-- [ ] **Learn Linux fundamentals** — file system, permissions, process management
-- [ ] **Run your first Nmap scan** — `nmap -sV 192.168.x.x/24` on your local network
-- [ ] **Set up a vulnerable target VM** — Metasploitable2 or DVWA for practice
-- [ ] **Start TryHackMe** beginner path → [https://tryhackme.com](https://tryhackme.com)
-- [ ] **Try HackTheBox Starting Point** → [https://hackthebox.com](https://hackthebox.com)
-- [ ] **Study for eJPT** (entry-level pen test cert) or **CompTIA Security+**
-
----
-
 ## 📚 Resources
 
 | Resource | Link |
@@ -459,8 +450,9 @@ Through this project, I learned:
 | **RAM** | 8 GB |
 | **Storage** | 512 GB SSD |
 | **Host OS** | macOS |
-| **VM RAM Allocated** | 3 GB |
-| **VM Disk Allocated** | 35 GB |
+| **VM RAM Allocated** | 4 GB |
+| **VM CPUs Allocated** | 4 |
+| **VM Disk Allocated** | 25.64 GB |
 
 ---
 
