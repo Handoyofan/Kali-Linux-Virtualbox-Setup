@@ -39,8 +39,8 @@ This project documents the process of setting up a **Kali Linux virtual machine*
 | **Host OS** | macOS (Apple Silicon) |
 | **RAM** | 8 GB |
 | **Storage** | 512 GB SSD |
-| **Virtualization Tool** | Oracle VirtualBox 7.1+ (Apple Silicon) |
-| **Guest OS** | Kali Linux 2024.x ARM64 |
+| **Virtualization Tool** | Oracle VirtualBox 7.2+ (Apple Silicon) |
+| **Guest OS** | Kali Linux 2025.x ARM64 |
 | **RAM Allocated to VM** | 3 GB |
 | **Disk Space Allocated** | 30–40 GB |
 | **Completion Time** | ~45–60 minutes |
@@ -65,7 +65,7 @@ Setting up a virtual machine is **step zero** in cybersecurity. Here's why it ma
 
 The **Apple M1 chip uses ARM64 architecture**, which is fundamentally different from the x86_64 (Intel) architecture that most VMs are traditionally built on. This has two important implications:
 
-**1. VirtualBox version matters.** Standard VirtualBox does not support Apple Silicon. You need **VirtualBox 7.1 or later**, which added experimental ARM support. As of 2024 this is still labeled "Developer Preview" — it works, but expect occasional rough edges.
+**1. VirtualBox version matters.** Standard VirtualBox does not support Apple Silicon. You need **VirtualBox 7.2 or later**, which added experimental ARM support. As of 2024 this is still labeled "Developer Preview" — it works, but expect occasional rough edges.
 
 **2. You must use the ARM64 version of Kali Linux.** You cannot run the standard x86_64 Kali ISO on an M1 Mac. You must download the **ARM64** edition specifically.
 
