@@ -108,6 +108,9 @@ Or go to **Apple Menu** → **System Settings** → **General** → **Storage**.
 3. Also download the **VirtualBox 7.2.4 Extension Pack** from the same page (version must match exactly)
 
 > ⚠️ Make absolutely sure you click **"macOS / Apple Silicon"** — NOT the Intel macOS package. The Intel version will not run on your M1.
+<img width="1762" height="439" alt="Screenshot 2026-02-25 at 9 43 17 PM" src="https://github.com/user-attachments/assets/b56e9d8b-39dc-4233-899f-7256a453b18f" />
+
+
 
 ### Step 1.2 — Install VirtualBox
 
