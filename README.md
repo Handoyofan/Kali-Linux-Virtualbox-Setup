@@ -21,10 +21,8 @@
 - [Part 3: Create the Virtual Machine](#-part-3-create-the-virtual-machine)
 - [Part 4: Install Kali Linux](#-part-4-install-kali-linux)
 - [Part 5: Post-Installation Configuration](#-part-5-post-installation-configuration)
-- [Screenshots](#-screenshots)
 - [Troubleshooting](#-troubleshooting)
 - [Key Takeaways](#-key-takeaways)
-- [Next Steps](#-next-steps)
 - [Resources](#-resources)
 
 ---
