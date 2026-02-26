@@ -438,12 +438,6 @@ Through this project, I learned:
 
 ---
 
-## 📄 License
-
-This project documentation is open source and available under the [MIT License](LICENSE).
-
----
-
 <div align="center">
 
 **⭐ If this guide helped you, please star this repository! ⭐**
