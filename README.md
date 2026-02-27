@@ -71,8 +71,6 @@ The **Apple M1 chip uses ARM64 architecture**, which is fundamentally different 
 ### Alternative: UTM (Recommended if VirtualBox has issues)
 If VirtualBox gives you trouble on M1, **UTM** is a free, Mac-native virtualization app that runs excellently on Apple Silicon with no compatibility issues. This guide covers VirtualBox, but UTM notes are included where relevant.
 
-> 💡 Documenting both approaches makes your portfolio even more impressive.
-
 ---
 
 ## ✅ Prerequisites
