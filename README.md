@@ -186,7 +186,7 @@ Compare the output hash with the SHA256 value listed on the Kali Linux official 
 | **Folder** | Choose a location with enough free space |
 | **ISO Image** | Browse → select your `kali-linux-2025.4-installer-arm64.iso` |
 | **Type** | Linux |
-| **Version** | **Debian 12 Bookworm (64-bit ARM)** |
+| **Version** | **Debian(64-bit ARM)** |
 
 4. Check ✅ **"Skip Unattended Installation"**
 5. Click **Next**
@@ -229,6 +229,7 @@ Right-click your VM → **Settings**:
 - **Network** → **Adapter 1**: Confirm it's set to **NAT** (gives internet access via your Mac)
 - **USB**: Enable USB 2.0 or 3.0 (requires Extension Pack)
 - **System** → **Motherboard**: UEFI ✅ (required for ARM64 Kali)
+<img width="757" height="743" alt="Screenshot 2026-02-27 at 12 12 53 AM" src="https://github.com/user-attachments/assets/e925d185-f550-41de-8a14-77432f6a31dd" />
 
 ---
 
