@@ -228,7 +228,7 @@ Right-click your VM → **Settings**:
 - **Display** → **Screen**: Set Video Memory to **128 MB**, Graphics controller to VMSVGA
 - **Network** → **Adapter 1**: Confirm it's set to **NAT** (gives internet access via your Mac)
 - **USB**: Enable USB 2.0 or 3.0 (requires Extension Pack)
-- **System** → **Motherboard**: EFI ✅ (required for ARM64 Kali)
+- **System** → **Motherboard**: UEFI ✅ (required for ARM64 Kali)
 
 ---
 
