@@ -154,6 +154,8 @@ The Extension Pack adds USB 2.0/3.0, RDP display, and webcam passthrough support
 > ⚠️ **Do NOT download the amd64 version.** It will not run on Apple Silicon. Confirm the filename contains `arm64` before downloading.
 
 File size is approximately **3–4 GB** — download time depends on your connection.
+<img width="931" height="596" alt="Screenshot 2026-02-26 at 11 54 28 PM" src="https://github.com/user-attachments/assets/670886f0-3c80-40cb-b6a8-f3bdcce617e2" />
+
 
 ### Step 2.2 — Verify the Download (Security Best Practice)
 
@@ -164,6 +166,8 @@ shasum -a 256 ~/Downloads/kali-linux-2025.4-installer-arm64.iso
 ```
 
 Compare the output hash with the SHA256 value listed on the Kali Linux official download page. They must match exactly. This confirms the file is authentic and wasn't corrupted.
+<img width="937" height="595" alt="Screenshot 2026-02-26 at 11 55 29 PM" src="https://github.com/user-attachments/assets/d84a1a09-1a5e-4e76-9dc5-4d6fef633f74" />
+<img width="990" height="614" alt="Screenshot 2026-02-26 at 11 53 03 PM" src="https://github.com/user-attachments/assets/33d7d3d5-9a43-4086-bdb0-dc2e101cf1f8" />
 
 ---
 
