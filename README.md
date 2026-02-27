@@ -167,7 +167,8 @@ shasum -a 256 ~/Downloads/kali-linux-2025.4-installer-arm64.iso
 
 Compare the output hash with the SHA256 value listed on the Kali Linux official download page. They must match exactly. This confirms the file is authentic and wasn't corrupted.
 <img width="937" height="595" alt="Screenshot 2026-02-26 at 11 55 29 PM" src="https://github.com/user-attachments/assets/d84a1a09-1a5e-4e76-9dc5-4d6fef633f74" />
-<img width="990" height="614" alt="Screenshot 2026-02-26 at 11 53 03 PM" src="https://github.com/user-attachments/assets/33d7d3d5-9a43-4086-bdb0-dc2e101cf1f8" />
+<img width="850" height="527" alt="Screenshot 2026-02-26 at 11 53 03 PM" src="https://github.com/user-attachments/assets/0014c6b3-1f3d-428c-b5e6-40dac9937d4c" />
+
 
 ---
 
