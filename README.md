@@ -37,7 +37,7 @@ This project documents the process of setting up a **Kali Linux virtual machine*
 | **Host OS** | macOS (Apple Silicon) |
 | **RAM** | 8 GB |
 | **Storage** | 512 GB SSD |
-| **Virtualization Tool** | Oracle VirtualBox 7.2.4 (Apple Silicon) |
+| **Virtualization Tool** | Oracle VirtualBox 7.2.6 (Apple Silicon) |
 | **Guest OS** | Kali Linux 2025.4 ARM64 |
 | **RAM Allocated to VM** | 4 GB (4096 MB)|
 | **CPUs Allocated to VM** | 4 |
@@ -102,8 +102,8 @@ Or go to **Apple Menu** → **System Settings** → **General** → **Storage**.
 
 1. Go to: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 2. Under **VirtualBox platform packages**, click **"macOS / Apple Silicon hosts"**
-   - This downloads `VirtualBox-7.2.4-xxxxxx-macOSArm64.dmg`
-3. Also download the **VirtualBox 7.2.4 Extension Pack** from the same page (version must match exactly)
+   - This downloads `VirtualBox-7.2.6-xxxxxx-macOSArm64.dmg`
+3. Also download the **VirtualBox 7.2.6 Extension Pack** from the same page (version must match exactly)
 
 > ⚠️ Make absolutely sure you click **"macOS / Apple Silicon"** — NOT the Intel macOS package. The Intel version will not run on your M1.
 <img width="1762" height="439" alt="Screenshot 2026-02-25 at 9 43 17 PM" src="https://github.com/user-attachments/assets/b56e9d8b-39dc-4233-899f-7256a453b18f" />
