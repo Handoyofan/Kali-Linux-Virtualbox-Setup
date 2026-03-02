@@ -425,22 +425,22 @@ Inside Kali, the folder appears at `/media/sf_kali-share`.
 
 ## 🔧 Troubleshooting
 
-### <u>"Kernel driver not installed" error on launch</u>
+### ⚠️"Kernel driver not installed" error on launch
 The System Extension was blocked. Go to **System Settings** → **Privacy & Security** → scroll down → click **Allow** next to Oracle software → restart your Mac.
 
-### <u>Black screen or VM freezes on boot</u>
+### ⚠️Black screen or VM freezes on boot
 Go to VM **Settings** → **Display** → increase Video Memory to 128 MB. Also try selecting **Install** (text mode) instead of **Graphical Install** in the boot menu.
 
-### <u>Wrong architecture / VM won't start</u>
+### ⚠️Wrong architecture / VM won't start
 You likely downloaded the `amd64` ISO instead of `arm64`. Re-download `kali-linux-arm64.iso` from the official Kali site.
 
-### <u>Kali runs slowly</u>
+### ⚠️Kali runs slowly
 Close other Mac applications to free RAM for the VM. The M1 manages memory efficiently, but 8 GB is shared between macOS and the VM. Quit Chrome tabs and heavy apps while using Kali.
 
-### <u>No internet inside Kali</u>
+### ⚠️No internet inside Kali
 VM **Settings** → **Network** → **Adapter 1** → confirm it is enabled and set to **NAT**.
 
-### <u>VBoxLinuxAdditions - Unsupported ARM64 Machine Type</u>
+### ⚠️VBoxLinuxAdditions - Unsupported ARM64 Machine Type
 When attempting to install VirtualBox Guest Additions on Kali Linux ARM64,
 the installer returns:
 
@@ -453,7 +453,7 @@ architecture. This is a known limitation of VirtualBox 7.2.6 on Apple Silicon.
 all Guest Additions equivalent features (screen resize, shared clipboard,
 drag and drop) out of the box.
 
-### <u>VirtualBox still has issues on M1?</u>
+### ⚠️VirtualBox still has issues on M1?
 Try **UTM** as an alternative: [https://mac.getutm.app](https://mac.getutm.app). It's free, open-source, and purpose-built for Apple Silicon. Download the Kali Linux UTM image directly from [https://www.kali.org/get-kali/#kali-virtual-machines](https://www.kali.org/get-kali/#kali-virtual-machines).
 
 ---
