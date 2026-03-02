@@ -92,7 +92,7 @@ df -h /
 ```
 Or go to **Apple Menu** → **System Settings** → **General** → **Storage**.
 
-> 💡 With 512 GB total, aim to keep at least 100 GB free on your Mac. Allocate 30–40 GB for the Kali VM — this leaves you plenty of headroom. The VM in this setup uses 25.64 GB.
+> 💡 With 512 GB total, aim to keep at least 100 GB free on your Mac. Allocate 30–40 GB for the Kali VM, this leaves you plenty of headroom. The VM in this setup uses 25.64 GB.
 
 ---
 
@@ -211,7 +211,7 @@ With 8 GB total on your M1 Mac:
 
 **Processors:**
 - Set to **4 CPUs**
-- Your M1 has 8 cores — allocating 4 gives the VM good performance while leaving 4 cores for macOS
+- Your M1 has 8 cores, allocating 4 gives the VM good performance while leaving 4 cores for macOS
 
 Click **Next**.
 
@@ -219,7 +219,7 @@ Click **Next**.
 
 1. Select **Create a Virtual Hard Disk Now**
 2. Set size to **25.64 GB** (as configured in this setup)
-3. Format: **VirtioSCSI** (selected automatically on ARM - better performance than SATA)
+3. Format: **VirtioSCSI** (selected automatically on ARM, better performance than SATA)
 4. Type: **Dynamically Allocated** (only uses space as data fills it)
 5. Click **Finish**
 
@@ -264,10 +264,10 @@ The installer will load components for 1–2 minutes.
 ### Step 4.5 — Create User Account
 
 1. **Full name**: Your name (e.g., `Kali User`)
-2. **Username**: Lowercase username (e.g., `kaliuser`) — avoid using `root`
+2. **Username**: Lowercase username (e.g., `kaliuser`), avoid using `root`
 3. **Password**: Set a strong password and confirm it
 
-> 🔒 Good security habits start here — use a strong, unique password even in a practice environment.
+> 🔒 Good security habits start here, use a strong, unique password even in a practice environment.
 
 ### Step 4.6 — Partition the Disk
 
@@ -279,7 +279,7 @@ The installer will load components for 1–2 minutes.
 
 ### Step 4.7 — Install the Base System
 
-The system installs now — takes **10–20 minutes** depending on your Mac's speed. ☕
+The system installs now, takes **10–20 minutes** depending on your Mac's speed. ☕
 
 ### Step 4.8 — Configure the Package Manager
 
@@ -462,7 +462,7 @@ Try **UTM** as an alternative: [https://mac.getutm.app](https://mac.getutm.app).
 Through this project, I learned:
 
 - How **virtualization works on Apple Silicon (ARM64)** and why chip architecture matters
-- The difference between **ARM64 and x86_64** — and why you must match the ISO to your processor
+- The difference between **ARM64 and x86_64**, and why you must match the ISO to your processor
 - Why **Debian 12 Bookworm** is the correct VM Type, because Kali Linux 2024.x is built directly on top of it
 - How to safely **allocate VM resources** on a machine with shared RAM (8 GB)
 - The Kali Linux **installation process** end-to-end on Apple Silicon
