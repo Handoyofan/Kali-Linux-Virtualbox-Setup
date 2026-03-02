@@ -41,7 +41,7 @@ This project documents the process of setting up a **Kali Linux virtual machine*
 | **Guest OS** | Kali Linux 2025.4 ARM64 |
 | **RAM Allocated to VM** | 4 GB (4096 MB)|
 | **CPUs Allocated to VM** | 4 |
-| **Disk Space Allocated** | 25.64 GB |
+| **Disk Space Allocated** | 25.41 GB |
 | **Completion Time** | ~45–60 minutes |
 
 ---
@@ -92,7 +92,7 @@ df -h /
 ```
 Or go to **Apple Menu** → **System Settings** → **General** → **Storage**.
 
-> 💡 With 512 GB total, aim to keep at least 100 GB free on your Mac. Allocate 30–40 GB for the Kali VM, this leaves you plenty of headroom. The VM in this setup uses 25.64 GB.
+> 💡 With 512 GB total, aim to keep at least 100 GB free on your Mac. Allocate 30–40 GB for the Kali VM, this leaves you plenty of headroom. The VM in this setup uses 25.41 GB.
 
 ---
 
@@ -218,7 +218,7 @@ Click **Next**.
 ### Step 3.3 — Create the Virtual Hard Disk
 
 1. Select **Create a Virtual Hard Disk Now**
-2. Set size to **25.64 GB** (as configured in this setup)
+2. Set size to **25.41 GB** (as configured in this setup)
 3. Format: **VirtioSCSI** (selected automatically on ARM, better performance than SATA)
 4. Type: **Dynamically Allocated** (only uses space as data fills it)
 5. Click **Finish**
@@ -231,7 +231,8 @@ Right-click your VM → **Settings**:
 - **Network** → **Adapter 1**: Confirm it's set to **NAT** (gives internet access via your Mac)
 - **USB**: Enable USB 2.0 or 3.0 (requires Extension Pack)
 - **System** → **Motherboard**: EFI ✅ (required for ARM64 Kali)
-<img width="757" height="743" alt="Screenshot 2026-02-27 at 12 12 53 AM" src="https://github.com/user-attachments/assets/e925d185-f550-41de-8a14-77432f6a31dd" />
+<img width="805" height="763" alt="Screenshot 2026-03-01 at 8 22 25 PM" src="https://github.com/user-attachments/assets/f0f840fb-ce59-4dc9-9c8a-845e7a801ba9" />
+
 
 ---
 
@@ -499,7 +500,7 @@ Through this project, I learned:
 | **Host OS** | macOS |
 | **VM RAM Allocated** | 4 GB |
 | **VM CPUs Allocated** | 4 |
-| **VM Disk Allocated** | 25.64 GB |
+| **VM Disk Allocated** | 25.41 GB |
 | **Storage Controller** | VirtioSCSI |
 | **EFI** | Enabled |
 | **Network** | NAT |
