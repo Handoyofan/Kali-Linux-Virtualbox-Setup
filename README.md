@@ -64,7 +64,7 @@ Setting up a virtual machine is **step zero** in cybersecurity. Here's why it ma
 
 The **Apple M1 chip uses ARM64 architecture**, which is fundamentally different from the x86_64 (Intel) architecture that most VMs are traditionally built on. This has two important implications:
 
-**1. VirtualBox version matters.** Standard VirtualBox does not support Apple Silicon. You need **VirtualBox 7.2.4**, which includes ARM support for Apple Silicon. This version is stable enough for home lab use.
+**1. VirtualBox version matters.** Standard VirtualBox does not support Apple Silicon. You need **VirtualBox 7.2.6**, which includes ARM support for Apple Silicon. This version is stable enough for home lab use.
 
 **2. You must use the ARM64 version of Kali Linux.** You cannot run the standard x86_64 Kali ISO on an M1 Mac. You must download the **ARM64** edition specifically.
 
@@ -139,6 +139,8 @@ This step is unique to macOS and must not be skipped:
 4. Click **Install** and accept the license
 
 The Extension Pack adds USB 2.0/3.0, RDP display, and webcam passthrough support.
+<img width="708" height="593" alt="Screenshot 2026-03-01 at 3 35 58 PM" src="https://github.com/user-attachments/assets/262d6d2c-6ec6-4a3c-8f64-b0e0b38a5c1d" />
+<img width="711" height="317" alt="Screenshot 2026-03-01 at 3 36 22 PM" src="https://github.com/user-attachments/assets/674444ba-7b25-438d-b4ec-550ef2b152b9" />
 
 ---
 
@@ -186,7 +188,7 @@ Compare the output hash with the SHA256 value listed on the Kali Linux official 
 | **Folder** | Choose a location with enough free space |
 | **ISO Image** | Browse → select your `kali-linux-2025.4-installer-arm64.iso` |
 | **Type** | Linux |
-| **Version** | **Debian(64-bit ARM)** |
+| **Version** | **Debian(64-bit ARM) or Debian 12 Bookworm (The Latest one)** |
 
 4. Check ✅ **"Skip Unattended Installation"**
 5. Click **Next**
@@ -314,27 +316,76 @@ Enter the username and password you set during installation.
 
 ### Step 5.2 — Install VirtualBox Guest Additions
 
-Enables auto-screen resize, shared clipboard, and drag-and-drop.
+Before attempting Guest Additions, install the required kernel headers and build tools:
 
 Open **Terminal** inside Kali and run:
 
 ```bash
 sudo apt update
-sudo apt install -y virtualbox-guest-x11
-sudo reboot
+sudo apt install -y build-essential dkms linux-headers-$(uname -r)
 ```
 
-After reboot, go to VirtualBox menu → **Devices** → **Shared Clipboard** → **Bidirectional**.
+Verify headers are installed:
+```
+dpkg -' | grep linux-headers
+```
 
-### Step 5.3 — Update the System
+### Step 5.3 - Attempt VirtualBox Guest Additions (ARM64 Limitation)
+> ⚠️**Important**: This step documents a known ARM64 limitation. as I am using "arm" machine, the following method is not applicable.
+
+**Method 1** - Via apt (will fail on ARM64):
+```
+sudo apt install -y virtualbox-guest-x11
+# Result: Unable to locate package
+sudo apt install -y virtualbox-guest-utils
+# Result: Unable to locate package
+```
+These packages are **not available for ARM64** in the kali repositories.
+
+**Method 2** - Via **BoxLinuxAdditions.run:**
+1. In VirtualBox menu → Devices → **"Insert Guest Additions CD Image.."**
+2. Or download `VBoxGuestAdditions_7.2.6.iso`
+   from [https://download.virtualbox.org/virtualbox/7.2.6/](https://download.virtualbox.org/virtualbox/7.2.6/)
+4. in Kali Terminal:
+```
+# Give execute permission
+sudo chmod 777 VBoxLinuxAdditions.run
+
+# Run the installer
+sudo ./VBoxLinuxAdditions.run
+```
+**Result on Apple M1:**
+```
+Verifying archive integrity... 100% MD5 checksums are OK. All good.
+Uncompressing VirtualBox 7.2.6 Guest Additions for Linux 100%
+VirtualBox Guest Additions installer detected unsupported arm64 machine type
+```
+
+**Root Cause:** VirtualBox Guest additions 7.2.6 does **not support ARM64 architecture.** This is 
+a confirmed limitation of VirtualBox on Apple Silicon.
+
+The purpose of run the **VirtualBox Guest Additions** is to have the machine are able to **Auto screen resize, Share clipboard, Drag and drop**.
+However, the Kali VM still works fine for learning tools. Just won't have the convenience features like the above described.
+It perfectly usable for a beginner lab.
+
+### Step 5.4 — Update the System
 
 ```bash
 sudo apt update && sudo apt full-upgrade -y
+sudo reboot now
 ```
+> 💡 Why `full-upgrade instead` of `upgrade`?
+   - `apt update`: refreshes the package list (checks what's available)
+   - `apt upgrade`: installs newer versions of existing packages
+   - `apt full-upgrade`: same as upgrade but also handles dependency changes
+   Always run `update` before upgrade. On Kali Linux, `full-upgrade` is the officially
+   recommended command.
 
 Always update immediately after a fresh install to get the latest security patches and tool versions.
+<img width="1180" height="751" alt="Screenshot 2026-03-01 at 5 41 00 PM" src="https://github.com/user-attachments/assets/0eb8bfb1-79bc-4e0b-8dcd-bbc7bc6c54f0" />
 
-### Step 5.4 — Take a Snapshot (Very Important!)
+
+### Step 5.5 — Take a Snapshot (Very Important!)
 
 Before doing anything else, save this clean state:
 
@@ -344,7 +395,7 @@ Before doing anything else, save this clean state:
 
 > 💡 Think of snapshots as a "save game" button. If something breaks during practice, you can revert here instantly.
 
-### Step 5.5 — Set Up Shared Folder (Optional)
+### Step 5.6 — Set Up Shared Folder (Optional)
 
 To pass files between your Mac and Kali:
 
@@ -355,7 +406,7 @@ To pass files between your Mac and Kali:
 
 Inside Kali, the folder appears at `/media/sf_kali-share`.
 
-### Step 5.6 — Explore Pre-installed Security Tools
+### Step 5.7 — Explore Pre-installed Security Tools
 
 | Category | Tools Included |
 |---|---|
@@ -367,6 +418,7 @@ Inside Kali, the folder appears at `/media/sf_kali-share`.
 | **Forensics** | Autopsy, Binwalk |
 | **Sniffing & Spoofing** | Wireshark, Ettercap |
 
+<img width="862" height="766" alt="Screenshot 2026-03-01 at 4 10 40 PM" src="https://github.com/user-attachments/assets/8f0a12b0-584a-4ff2-a4b9-070e1e30958d" />
 
 ---
 
@@ -387,11 +439,18 @@ Close other Mac applications to free RAM for the VM. The M1 manages memory effic
 ### No internet inside Kali
 VM **Settings** → **Network** → **Adapter 1** → confirm it is enabled and set to **NAT**.
 
-### Screen won't auto-resize after Guest Additions
-```bash
-sudo apt install --reinstall virtualbox-guest-x11
-sudo reboot
-```
+### VBoxLinuxAdditions - Unsupported ARM64 Machine Type
+When attempting to install VirtualBox Guest Additions on Kali Linux ARM64,
+the installer returns:
+
+"VirtualBox Guest Additions installer detected unsupported arm64 machine type"
+
+Root Cause: VirtualBox Guest Additions does not currently support ARM64
+architecture. This is a known limitation of VirtualBox 7.2.6 on Apple Silicon.
+
+**Solution:** Migrated to UTM, which natively supports Apple Silicon and includes
+all Guest Additions equivalent features (screen resize, shared clipboard,
+drag and drop) out of the box.
 
 ### VirtualBox still has issues on M1?
 Try **UTM** as an alternative: [https://mac.getutm.app](https://mac.getutm.app). It's free, open-source, and purpose-built for Apple Silicon. Download the Kali Linux UTM image directly from [https://www.kali.org/get-kali/#kali-virtual-machines](https://www.kali.org/get-kali/#kali-virtual-machines).
@@ -404,6 +463,7 @@ Through this project, I learned:
 
 - How **virtualization works on Apple Silicon (ARM64)** and why chip architecture matters
 - The difference between **ARM64 and x86_64** — and why you must match the ISO to your processor
+- Why **Debian 12 Bookworm** is the correct VM Type, because Kali Linux 2024.x is built directly on top of it
 - How to safely **allocate VM resources** on a machine with shared RAM (8 GB)
 - The Kali Linux **installation process** end-to-end on Apple Silicon
 - How to approve **macOS System Extensions** for third-party software
@@ -440,6 +500,9 @@ Through this project, I learned:
 | **VM RAM Allocated** | 4 GB |
 | **VM CPUs Allocated** | 4 |
 | **VM Disk Allocated** | 25.64 GB |
+| **Storage Controller** | VirtioSCSI |
+| **EFI** | Enabled |
+| **Network** | NAT |
 
 ---
 
@@ -449,6 +512,6 @@ Through this project, I learned:
 
 *Made with ❤️ as part of my cybersecurity learning journey*
 
-*MacBook Pro M1 · Kali Linux 2025.4 ARM64 · VirtualBox 7.2.4*
+*MacBook Pro M1 · Kali Linux 2025.4 ARM64 · VirtualBox 7.2.6*
 
 </div>
